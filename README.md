@@ -8,6 +8,7 @@ No. | localImage | afterProcess
 1 | ![](pics/f2.jpg) | ![](pics/f2t.jpg)
 2 | ![](pics/car.jpg) | ![](pics/cart.jpg)
 3 | ![](pics/nba.jpg) | ![](pics/nbat.jpg)
+5 | ![](pics/jingwu.jpg) | ![](pics/jingwut.jpg)
 
 ## Tips
 
