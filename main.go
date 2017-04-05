@@ -55,7 +55,7 @@ func main() {
 
 	// file, err := os.Open("./colors/red.jpg")
 	// file, err := os.Open("./colors/green.jpg")
-	file, err := os.Open("./car.jpg")
+	file, err := os.Open("./jingwu.jpg")
 	// file, err := os.Open("./flowers.jpg")
 	if err != nil {
 		fmt.Println(err)
@@ -77,7 +77,7 @@ func main() {
 		for j := 0; j < yHeight; j++ {
 			H, S, V := RGBAToHSV(img.At(i, j))
 			thisR, thisG, thisB, thisA := img.At(i, j).RGBA()
-			if H > 80 && H < 360 {
+			if (H < 1) && (V > 100) && (S > 70) {
 				fmt.Println(H, S, V)
 				n := &color.RGBA64{uint16(thisR), uint16(thisG), uint16(thisB), uint16(thisA)}
 				jpg.SetRGBA64(i, j, *n)
