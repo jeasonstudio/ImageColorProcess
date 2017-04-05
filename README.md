@@ -13,3 +13,7 @@ No. | localImage | afterProcess
 ## Tips
 
 使用了 HSV 空间模式
+
+## LICENSE
+
+[MIT](./LICENSE)
