@@ -55,14 +55,14 @@ func main() {
 
 	// file, err := os.Open("./colors/red.jpg")
 	// file, err := os.Open("./colors/green.jpg")
-	file, err := os.Open("./jingwu.jpg")
+	file, err := os.Open("./moshiimg/source/11.jpg")
 	// file, err := os.Open("./flowers.jpg")
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer file.Close()
 
-	file1, err := os.Create("tag.jpg")
+	file1, err := os.Create("11.jpg")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -77,15 +77,19 @@ func main() {
 		for j := 0; j < yHeight; j++ {
 			H, S, V := RGBAToHSV(img.At(i, j))
 			thisR, thisG, thisB, thisA := img.At(i, j).RGBA()
-			if (H < 1) && (V > 100) && (S > 70) {
+			if V <= 50 || H >= 50 || (5*int(V)-13*int(H) >= 600) || (5*int(S)-17*int(H) >= 500) {
 				fmt.Println(H, S, V)
 				n := &color.RGBA64{uint16(thisR), uint16(thisG), uint16(thisB), uint16(thisA)}
+				// n := &color.RGBA64{65535, 65535, 65535, 65535}
 				jpg.SetRGBA64(i, j, *n)
 			} else {
 				m := RGBAToGray(img.At(i, j))
 				n := &color.RGBA64{m, m, m, m}
 				jpg.SetRGBA64(i, j, *n)
 			}
+
+			// fmt.Println(string(H) + "," + string(S) + "," + string(V))
+			// fmt.Printf("%d,%d,%d\n", H, S, V)
 		}
 	}
 	// draw.Draw(jpg, img.Bounds().Add(image.Pt(xWidth, yHeight)), img, img.Bounds().Min, draw.Src)
@@ -144,13 +148,13 @@ func RGBAToHSV(c color.Color) (int, uint8, uint8) {
 	if max == min {
 		H = 0
 	} else if max == R && G >= B {
-		H = 60 * int((G-B)/(max-min))
+		H = 60 * int(G-B) / int(max-min)
 	} else if max == R && G < B {
-		H = 60*int((G-B)/(max-min)) + 360
+		H = 60*(int(G-B)/int(max-min)) + 360
 	} else if max == G {
-		H = 60*int((B-R)/(max-min)) + 120
+		H = 60*(int(B-R)/int(max-min)) + 120
 	} else if max == B {
-		H = 60*int((R-G)/(max-min)) + 240
+		H = 60*(int(R-G)/int(max-min)) + 240
 	}
 
 	for {
