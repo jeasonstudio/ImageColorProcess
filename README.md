@@ -17,3 +17,7 @@ No. | localImage | afterProcess
 ## Main
 
 > V <= 50 || H >= 50 || (5*int(V)-13*int(H) >= 600) || (5*int(S)-17*int(H) >= 500)
+
+## LICENSE
+
+[MIT](./LICENSE)
