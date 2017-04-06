@@ -13,3 +13,7 @@ No. | localImage | afterProcess
 ## Tips
 
 使用了 HSV 空间模式
+
+## Main
+
+> V <= 50 || H >= 50 || (5*int(V)-13*int(H) >= 600) || (5*int(S)-17*int(H) >= 500)
