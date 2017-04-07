@@ -1,7 +1,7 @@
 # ImageColorProcess
-图像单色处理，使用语言：Golang
+Image Process _ Single Color. Language I used ：Golang
 
-## 如下效果
+## Feature
 
 No. | localImage | afterProcess
 ---|---|---
@@ -12,11 +12,11 @@ No. | localImage | afterProcess
 
 ## Tips
 
-使用了 HSV 空间模式
+Use HSV space module
 
-## Main
+## Paper
 
-> V <= 50 || H >= 50 || (5*int(V)-13*int(H) >= 600) || (5*int(S)-17*int(H) >= 500)
+[Moshi shibie](./moshiimg/paper/README.md)
 
 ## LICENSE
 
